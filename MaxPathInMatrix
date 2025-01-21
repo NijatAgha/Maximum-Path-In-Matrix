@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int maxElement = 0;
+int maxSum = 0;
+
+void FindMaxSumInMatrix(int matrix[3][3])
+{
+    cout << "Max Sum Path: ";
+    
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0 ; j < 3; j++)
+        {
+            if(matrix[j][i] >= maxElement)
+            {
+                maxElement = matrix[j][i];
+            }
+        }
+        
+        maxSum += maxElement;
+        cout << maxElement << " ";
+        maxElement = 0;
+    }
+    
+    cout << "\n";
+    cout << "Max Sum: " << maxSum;
+}
+
+int main() 
+{
+    int matrix[3][3];
+    
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0 ; j < 3; j++)
+        {
+            cin >> matrix[i][j];
+        }
+    }
+
+    cout << "--------------------------------";
+    cout << "\n";
+    
+    FindMaxSumInMatrix(matrix);
+
+}
+
